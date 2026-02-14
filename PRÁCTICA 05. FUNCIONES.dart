@@ -1,0 +1,25 @@
+void main() {
+  print(greetEveryone());
+  print('Suma: ${addTwoNumbers(3,2)}');
+  print('Suma opcional: ${addTwoNumbersOptional(6)}');
+  print(greetPerson(name: 'Nelly', message: 'Cómo estás'));
+}
+
+// String greetEveryone() {
+//   return 'Hello everyone';
+// }
+
+String greetEveryone() => 'Hello everyone!';
+
+int addTwoNumbers(int a, int b) => a + b;
+
+int addTwoNumbersOptional(int a, [int b = 0]) {
+  //b = b ?? 0;
+  //b += 5;
+  
+  return a + b;
+}
+
+String greetPerson({required String name, required String message}) {
+  return '$message $name';
+}
