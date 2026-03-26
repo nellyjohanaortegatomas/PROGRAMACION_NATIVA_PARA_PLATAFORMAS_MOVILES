@@ -1,0 +1,53 @@
+void main() {
+  final Map<String, dynamic> spidermanJson = {
+    'name': 'Peter Parker',
+    'power': 'Arácnido',
+    'isAlive': true
+  };
+  
+    final Map<String, dynamic> wolverineJson = {
+    'name': 'Logan',
+    'power': 'Regeneración',
+    'isAlive': true
+  };
+  
+  final wolverine = Hero.fromJson(wolverineJson);
+  
+  final ironman = Hero(
+    name: 'Tony Stark',
+    power: 'Millonario',
+    isAlive: false
+  );
+  
+    final spiderman = Hero(
+    name: spidermanJson['name'],
+    power: spidermanJson['power'],
+    isAlive: spidermanJson['isAlive'],
+  );
+  
+  print(ironman);
+  print(spiderman);
+  print(wolverine);
+}
+
+class Hero {
+  String name;
+  String power;
+  bool isAlive;
+  
+  Hero ({
+    required this.name,
+    required this.power,
+    required this.isAlive
+  });
+  
+  Hero.fromJson(Map<String, dynamic> json)
+    : name = json['name'],
+      power = json['power'],
+      isAlive = json['isAlive'];
+  
+  @override
+  String toString() {
+    return '$name, $power - ${isAlive ? 'Yes :)' : 'Nope :('}';
+  }
+}
